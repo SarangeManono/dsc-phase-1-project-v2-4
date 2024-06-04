@@ -97,51 +97,19 @@ movie_budgets_df.head(10)
 ## High-grossing Movie Budgets
 
 At this stage, I'm working with the hypothesis that production budgets are proportional to wordwide gross income. I will prove or disprove this hypothesis using a scatter plot to establish corelation.
-movie_budgets_df.info()
-sns.scatterplot(x='production_budget', y='worldwide_gross', data=movie_budgets_df).set(title='Correlation between production budget and worldwidegross')
 
-plt.show()
-df6=movie_budgets_df.nlargest (n=20, columns='worldwide_gross')
-df6 
-I isolated the top 10 movies as follows.
-df7=movie_budgets_df.nlargest (n=10, columns='production_budget')
-df7 
-sns.barplot(x='movie', y='production_budget', data=df6)
-plt.xticks(rotation=90)
-plt.title('Movies with the Highest Production Budgets')
-plt.xlabel('Movie')
-plt.ylabel('Production Budget (00 million)')
-plt.show()
+![correlation](https://github.com/SarangeManono/dsc-phase-1-project-v2-4/assets/164891014/6983f851-eb6b-4d9c-b1aa-d3c4589b8f06)
+
+![production budgets](https://github.com/SarangeManono/dsc-phase-1-project-v2-4/assets/164891014/726b2459-a7c1-45b6-b12f-3a3f23faf1ef)
+
 
 ## Popular Genres
 
-rt_df = pd.read_csv(("zippedData/rt.movie_info.tsv.gz"),delimiter = "\t") 
-rt_df.head(10) 
-rt_df.genre.value_counts().nlargest(10) 
-rt_df.info()
-x = rt_df["genre"].value_counts().head(10).index.tolist()
-y = list(rt_df["genre"].value_counts().nlargest(10))   
-
-fig,ax = plt.subplots(figsize = (10,5))
-plt.bar(x, y, color = "Teal", width = 0.5)
-plt.xlabel('Genre')
-plt.ylabel('Number')
-plt.xticks(rotation = 90);
-plt.title("Top Ten Movie Genres", fontsize = 18, fontweight = "bold");
+![genres](https://github.com/SarangeManono/dsc-phase-1-project-v2-4/assets/164891014/d7fe697a-17c2-4381-bf41-8cd58caf9856)
 
 ## Popular Languages
 
-tmbd_df = pd.read_csv("zippedData/tmdb.movies.csv.gz") 
-
-tmbd_df.head(10)
-grouped = tmbd_df.groupby(["original_language"]).sum().sort_values(by="popularity", ascending= False) 
-grouped.head()
-language =  ["en","fr","ja","es", "ru"]
-Popularity= [71896,2155,1513,1257,708]
-grouped["popularity"].head()
-fig,ax = plt.subplots(figsize = (5,5))
-plt.pie(Popularity, labels = language)
-plt.title("Most Prefered Languages");
+![languages](https://github.com/SarangeManono/dsc-phase-1-project-v2-4/assets/164891014/85bb1e24-bfb4-4eb3-9ee7-96fa532efbca)
 
 ## **Recommendations** 
 
